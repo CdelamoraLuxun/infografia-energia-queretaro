@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: El Panorama Energético de Querétaro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; 
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .kpi-card {
+            background-color: #1e293b;
+            border-left: 4px solid #ef5675;
+        }
+        .section-card {
+            background-color: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .arrow {
+            width: 0;
+            height: 0;
+        }
+        .arrow-right {
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid #ff764a;
+        }
+        .arrow-down {
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #ff764a;
+        }
+        .cta-button {
+            background-image: linear-gradient(to right, #ef5675, #ff764a, #ffa600);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <header class="text-center py-12 px-4 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#ef5675] via-[#ff764a] to-[#ffa600]">El Costo de la Energía en Querétaro</h1>
+        <p class="mt-4 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">Un análisis visual de los riesgos y oportunidades para el sector industrial (2018-2024).</p>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <section id="intro" class="mb-20 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">El Dilema Energético de un Polo Industrial</h2>
+            <p class="max-w-4xl mx-auto text-slate-300 mb-8">
+                Querétaro es un motor de crecimiento económico, impulsado por la industria y el nearshoring. Pero este éxito tiene un costo creciente: la energía eléctrica. La demanda supera la capacidad de la infraestructura, la volatilidad de los combustibles impacta los precios y la regulación añade presión. Esta infografía desglosa las tendencias que definen su factura eléctrica y cómo puede transformar este riesgo en una ventaja competitiva.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="kpi-card p-6 rounded-lg shadow-2xl">
+                    <p class="text-5xl font-extrabold text-[#ef5675]">71.9%</p>
+                    <p class="mt-2 text-slate-300">Incremento Máximo Anual en el Precio Mayorista de Energía (PML) en 2021.</p>
+                </div>
+                <div class="kpi-card p-6 rounded-lg shadow-2xl">
+                    <p class="text-5xl font-extrabold text-[#ffa600]">20%</p>
+                    <p class="mt-2 text-slate-300">Aumento en los Cargos por Energía (Punta/Intermedio) de la tarifa industrial GDMTH en 2022.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="structure" class="mb-20">
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">Del Mercado Mayorista a su Factura: ¿Qué Está Pagando Realmente?</h2>
+            <p class="max-w-3xl mx-auto text-slate-300 mb-10 text-center">
+                El precio que usted paga no es un número único. Es una construcción compleja que comienza en el volátil Mercado Eléctrico Mayorista (MEM) y termina en su tarifa regulada, sumando costos de transmisión, distribución y otros servicios.
+            </p>
+            <div class="section-card rounded-xl p-8 shadow-2xl">
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-6">
+                    <div class="text-center p-6 bg-slate-800 rounded-lg border border-slate-700">
+                        <p class="text-xl font-bold text-[#bc5090]">PML ($/MWh)</p>
+                        <p class="text-sm text-slate-400">Precio Mayorista (Volátil)</p>
+                    </div>
+                    <div class="arrow-down md:arrow-right"></div>
+                    <div class="text-center p-6 bg-slate-800 rounded-lg border border-slate-700">
+                        <p class="text-lg font-semibold text-slate-300">+ T + D + CENACE + ...</p>
+                        <p class="text-sm text-slate-400">Cargos Regulados (Fijos)</p>
+                    </div>
+                    <div class="arrow-down md:arrow-right"></div>
+                    <div class="text-center p-6 bg-slate-800 rounded-lg border border-slate-700">
+                        <p class="text-xl font-bold text-[#ff764a]">GDMTH ($/kWh)</p>
+                        <p class="text-sm text-slate-400">Su Tarifa Industrial (Establecida)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="pml" class="mb-20">
+            <h2 class="text-3xl font-bold text-white mb-4 text-center">La Montaña Rusa del Mercado Mayorista (PML)</h2>
+            <p class="max-w-3xl mx-auto text-slate-300 mb-10 text-center">
+                El Precio Marginal Local (PML) en Querétaro muestra una volatilidad extrema. Impulsado por los costos globales del gas natural y la congestión de la red local, este precio base ha experimentado saltos dramáticos, que eventualmente se filtran a su tarifa final.
+            </p>
+            <div class="section-card rounded-xl p-4 md:p-8 shadow-2xl">
+                <div class="chart-container">
+                    <canvas id="pmlChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="gdmth" class="mb-20">
+            <h2 class="text-3xl font-bold text-white mb-4 text-center">El Impacto en su Factura: La Tarifa Industrial GDMTH</h2>
+            <p class="max-w-3xl mx-auto text-slate-300 mb-10 text-center">
+                La tarifa GDMTH, crítica para la industria, ha aumentado de forma constante. Los cargos por energía en horarios punta e intermedio son los más sensibles a los costos de generación, presentando los mayores incrementos y el mayor riesgo financiero.
+            </p>
+             <div class="section-card rounded-xl p-4 md:p-8 shadow-2xl">
+                <div class="chart-container">
+                    <canvas id="gdmthEnergyChart"></canvas>
+                </div>
+             </div>
+        </section>
+
+        <section id="gdmth-demand" class="mb-20">
+            <h2 class="text-3xl font-bold text-white mb-4 text-center">El Costo Fijo que no Deja de Crecer</h2>
+             <p class="max-w-3xl mx-auto text-slate-300 mb-10 text-center">
+                No solo la energía consumida es más cara. El cargo por demanda facturable ($/kW-mes), que paga por la capacidad que reserva en la red, también ha visto aumentos anuales constantes, reflejando mayores costos de infraestructura.
+            </p>
+             <div class="section-card rounded-xl p-4 md:p-8 shadow-2xl">
+                <div class="chart-container">
+                    <canvas id="gdmthDemandChart"></canvas>
+                </div>
+             </div>
+        </section>
+
+        <section id="drivers" class="mb-20">
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">Los Tres Motores del Incremento de Precios</h2>
+            <p class="max-w-3xl mx-auto text-slate-300 mb-10 text-center">
+                El alza de precios no tiene una causa única. Es una tormenta perfecta de factores globales, regulatorios y locales que convergen para aumentar su factura.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="section-card text-center p-6 rounded-xl shadow-lg">
+                    <div class="text-5xl mb-4">⛽️</div>
+                    <h3 class="text-xl font-bold text-[#ffa600] mb-2">Costos de Combustibles</h3>
+                    <p class="text-slate-300">La fuerte dependencia del gas natural importado hace que el costo de generación sea vulnerable a la volatilidad de los mercados energéticos globales.</p>
+                </div>
+                <div class="section-card text-center p-6 rounded-xl shadow-lg">
+                     <div class="text-5xl mb-4">⚖️</div>
+                    <h3 class="text-xl font-bold text-[#ef5675] mb-2">Marco Regulatorio</h3>
+                    <p class="text-slate-300">Ajustes anuales en las metodologías de la CRE para cubrir costos de transmisión y distribución se traducen en incrementos constantes en las tarifas.</p>
+                </div>
+                <div class="section-card text-center p-6 rounded-xl shadow-lg">
+                     <div class="text-5xl mb-4">⚡️</div>
+                    <h3 class="text-xl font-bold text-[#bc5090] mb-2">Infraestructura de Red</h3>
+                    <p class="text-slate-300">La congestión en las líneas y las pérdidas de energía elevan los precios locales, especialmente en una zona de alta demanda como Querétaro.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="call-to-action" class="mb-20 text-center bg-slate-800 py-16 rounded-xl">
+            <h2 class="text-3xl font-bold text-white mb-6">¿Listo para Tomar el Control de sus Costos?</h2>
+            <p class="max-w-3xl mx-auto text-slate-300 mb-10 px-4">
+                Esta infografía es solo el comienzo. Permítanos realizar un análisis personalizado para su empresa y descubrir oportunidades de ahorro que no había considerado. Agende una llamada de 30 minutos sin costo y sin compromiso.
+            </p>
+            <a href="https://meetings.hubspot.com/de-la-mora/llamada" target="_blank" rel="noopener noreferrer" class="cta-button text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition-opacity duration-300 inline-block text-lg">
+                Agendar Asesoría Gratuita
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 mt-16 border-t border-slate-800">
+        <p class="text-slate-500">Visualización de datos basada en el análisis de precios de energía en Querétaro (2018-2024).</p>
+        <p class="text-xs text-slate-600 mt-2">Este documento es una representación infográfica y no constituye asesoramiento financiero. Creado sin el uso de Mermaid JS o gráficos SVG.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+            return label.join(' ');
+        }
+        return label;
+    };
+
+    const commonChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#cbd5e1'
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    title: tooltipTitleCallback
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: { color: '#94a3b8' },
+                grid: { color: 'rgba(148, 163, 184, 0.2)' }
+            },
+            y: {
+                ticks: { color: '#94a3b8' },
+                grid: { color: 'rgba(148, 163, 184, 0.2)' }
+            }
+        }
+    };
+
+    const pmlData = {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024 (YTD)'],
+        datasets: [{
+            type: 'bar',
+            label: 'PML Promedio Anual ($/MWh)',
+            data: [1655.40, 1158.78, 785.60, 1350.15, 1890.21, 1450.00, 1680.50],
+            backgroundColor: 'rgba(188, 80, 144, 0.6)',
+            borderColor: '#bc5090',
+            borderWidth: 2,
+            yAxisID: 'y'
+        }, {
+            type: 'line',
+            label: 'Incremento Interanual (%)',
+            data: [null, -30.0, -32.2, 71.9, 40.0, -23.3, null],
+            borderColor: '#ff764a',
+            backgroundColor: '#ff764a',
+            tension: 0.3,
+            yAxisID: 'y1'
+        }]
+    };
+
+    const pmlCtx = document.getElementById('pmlChart').getContext('2d');
+    new Chart(pmlCtx, {
+        data: pmlData,
+        options: {
+            ...commonChartOptions,
+            scales: {
+                x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148, 163, 184, 0.1)' } },
+                y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    title: { display: true, text: 'PML ($/MWh)', color: '#cbd5e1' },
+                    ticks: { color: '#94a3b8' },
+                    grid: { color: 'rgba(148, 163, 184, 0.2)' }
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    title: { display: true, text: 'Incremento (%)', color: '#cbd5e1' },
+                    ticks: { color: '#94a3b8', callback: (value) => value + '%' },
+                    grid: { drawOnChartArea: false }
+                }
+            }
+        }
+    });
+
+    const gdmthEnergyData = {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+        datasets: [
+            {
+                label: 'Energía Punta ($/kWh)',
+                data: [2.45, 2.55, 2.64, 2.95, 3.54, 3.20, 3.42],
+                borderColor: '#ef5675',
+                backgroundColor: 'rgba(239, 86, 117, 0.2)',
+                fill: true,
+                tension: 0.4
+            },
+            {
+                label: 'Energía Intermedio ($/kWh)',
+                data: [1.28, 1.33, 1.38, 1.55, 1.86, 1.70, 1.82],
+                borderColor: '#ff764a',
+                backgroundColor: 'rgba(255, 118, 74, 0.2)',
+                fill: true,
+                tension: 0.4
+            },
+            {
+                label: 'Energía Base ($/kWh)',
+                data: [1.15, 1.20, 1.24, 1.40, 1.68, 1.52, 1.63],
+                borderColor: '#ffa600',
+                backgroundColor: 'rgba(255, 166, 0, 0.2)',
+                fill: true,
+                tension: 0.4
+            }
+        ]
+    };
+
+    const gdmthEnergyCtx = document.getElementById('gdmthEnergyChart').getContext('2d');
+    new Chart(gdmthEnergyCtx, {
+        type: 'line',
+        data: gdmthEnergyData,
+        options: {
+            ...commonChartOptions,
+            scales: {
+                ...commonChartOptions.scales,
+                y: {
+                    ...commonChartOptions.scales.y,
+                    title: { display: true, text: 'Costo por Energía ($/kWh)', color: '#cbd5e1' }
+                }
+            }
+        }
+    });
+
+    const gdmthDemandData = {
+        labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+        datasets: [{
+            label: 'Incremento Anual (%)',
+            data: [4.1, 3.7, 3.8, 7.0, 7.0, 7.0],
+            backgroundColor: [
+                'rgba(122, 81, 149, 0.6)',
+                'rgba(188, 80, 144, 0.6)',
+                'rgba(239, 86, 117, 0.6)',
+                'rgba(255, 118, 74, 0.6)',
+                'rgba(255, 166, 0, 0.6)',
+                 'rgba(122, 81, 149, 0.8)'
+            ],
+            borderColor: [
+                '#7a5195',
+                '#bc5090',
+                '#ef5675',
+                '#ff764a',
+                '#ffa600',
+                '#7a5195'
+            ],
+            borderWidth: 1
+        }]
+    };
+    
+    const gdmthDemandCtx = document.getElementById('gdmthDemandChart').getContext('2d');
+    new Chart(gdmthDemandCtx, {
+        type: 'bar',
+        data: gdmthDemandData,
+        options: {
+            ...commonChartOptions,
+            plugins: { ...commonChartOptions.plugins, legend: { display: false } },
+            scales: {
+                ...commonChartOptions.scales,
+                y: {
+                    ...commonChartOptions.scales.y,
+                    title: { display: true, text: 'Incremento Anual Cargo por Demanda (%)', color: '#cbd5e1' },
+                    ticks: { callback: (value) => value + '%' }
+                }
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
